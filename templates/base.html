@@ -1,0 +1,18 @@
+<!--
+    creating a base template for entire website to use
+
+    base.html can be the parent template which can be inherited from index.html
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{% block title %}{% endblock%}</title>
+</head>
+<body>
+    <h1> Chicken website base </h1>
+    {% block content%}
+    {% endblock %}
+</body>
+</html>
