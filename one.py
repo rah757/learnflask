@@ -1,7 +1,13 @@
-from flask import Flask, redirect, url_for
+from flask import Flask, redirect, url_for, render_template
+
+"""
+render_template can be used to link the html file
+
+"""
+
 
 app = Flask(__name__)
-a=False
+
 
 @app.route("/") #route it to default page (homepage) by giving just /
 def home(): #homepage displaying
@@ -11,9 +17,9 @@ def home(): #homepage displaying
 def user(name):
     return f"hello {name}!" #whatever page the user types, we say "hello name!"
 
-@app.route("/admin")
+@app.route("/admin/")
 def admin():
-    return redirect(url_for("home")) #redirecting using the redirect fn (if user goes to page.com/admin) that was imported
-
+    return redirect(url_for("user", name="admin!")) #redirecting using the redirect fn that was imported (if user goes to page.com/admin) 
+ 
 if __name__ == "__main__":
     app.run()
